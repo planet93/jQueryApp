@@ -1,0 +1,18 @@
+﻿@model jQueryAppBD.Models.Computer
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.LabelFor(model => model.Model)
+            <p>@Html.EditorFor(m => m.Model)</p>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Year)
+            <p>@Html.EditorFor(m => m.Year)</p>
+        </div>
+        <p><input type="submit" value="Добавить" /></p>
+    }
+</div>
