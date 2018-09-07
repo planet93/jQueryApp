@@ -35,9 +35,14 @@ namespace jQueryAppBD.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create (Computer comp)
         {
-            db.Computers.Add(comp);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                db.Computers.Add(comp);
+                db.SaveChanges();
+                return PartialView("Success");
+            }
+
+            return PartialView(comp);
         }
 
         //Редактирование

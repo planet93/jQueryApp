@@ -4,15 +4,24 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+
+    <div>
+        <h4>Новая модель</h4>
+        @Html.ValidationSummary(true)
         <div>
             @Html.LabelFor(model => model.Model)
             <p>@Html.EditorFor(m => m.Model)</p>
+            @Html.ValidationMessageFor(m => m.Model, "")
         </div>
 
         <div>
             @Html.LabelFor(m => m.Year)
             <p>@Html.EditorFor(m => m.Year)</p>
+            @Html.ValidationMessageFor(m => m.Year, "")
         </div>
-        <p><input type="submit" value="Добавить" /></p>
+        @*<p><input type="submit" value="Добавить" /></p>*@
+    </div>
+
+        
     }
 </div>

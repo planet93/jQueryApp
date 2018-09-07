@@ -10,9 +10,15 @@ namespace jQueryAppBD.Models
     public class Computer
     {
         public int Id { get; set; }
+
         [Display(Name ="Модель")]
+        [Required]
+        [MaxLength(20,ErrorMessage ="Превышена допустимая длина строки")]
         public string Model { get; set; }
+
         [Display(Name ="Год выпуска")]
+        [Required]
+        [Range(1970,2014,ErrorMessage ="Недопустимый год")]
         public int Year { get; set; }
     }
     public class CompContext : DbContext
