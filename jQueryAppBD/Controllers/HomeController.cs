@@ -5,15 +5,27 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using jQueryAppBD.Models;
+using Newtonsoft.Json;
 
 namespace jQueryAppBD.Controllers
 {
     public class HomeController : Controller
     {
         CompContext db = new CompContext();
+        static List<Book> books = new List<Book>();
         public ActionResult Index()
         {
             return View(db.Computers);
+        }
+
+        public ActionResult BooksGrid()
+        {
+            return View();
+        }
+        public string GetData()
+        {
+            //books = db.Books.ToList();
+            return JsonConvert.SerializeObject(db.Books.ToList());
         }
 
         public ActionResult Details(int id)

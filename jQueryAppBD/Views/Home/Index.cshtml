@@ -67,6 +67,8 @@
         }
     </table>
     <p>@Html.ActionLink("Добавить", "Create", "Home", new { }, new { @class = "viewDialogCreate knopka", data_dialog_title = "Создание модели" })</p>
+    <br />
+    <p>@Html.ActionLink("Просмотреть книги", "BooksGrid", "Home", new { }, new { @class = "knopka"})</p>
     <script src="~/Scripts/jquery-3.3.1.js" type="text/javascript"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js" type="text/javascript"></script>
     <script>
@@ -106,6 +108,11 @@
                     }
                 });
             });
+
+            function openBooks() {
+                alert('df');
+
+            }
         });
     </script>
 </body>
